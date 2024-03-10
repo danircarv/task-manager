@@ -1,13 +1,18 @@
 tasks = []
 def add_task(tasks, task_name):
-    task = {"nome": task_name, "completada": False}
+    task = {"name": task_name, "completada": False}
     tasks.append(task)
     print(f"Tarefa {task_name} foi adicionada com sucesso!")
     return
 
 def show_tasks(tasks):
     print("\nLista de tarefas")
-    print(tasks)
+    for index, task in enumerate(tasks, start=1):
+       status = "✓" if task["completada"] else " "
+       task_name = task["name"]
+       print(f"{index}. [{status}] {task_name} ")
+    
+
 
 while True:
     print("\n Menu do Gerenciador de Lista de Tarefas:")
@@ -35,8 +40,8 @@ while True:
 #             # ...
 #         case "5":
 #             # ...
-#         case "6":
-#             # ...
+        case "6":
+            break
 
         
   
