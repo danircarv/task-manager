@@ -22,6 +22,13 @@ def update_task_name(tasks, task_index, task_new_name):
         print("índice de tarefa inválido")
     return
 
+def check_task(tasks, task_index):
+    corrected_task_index = int(task_index) - 1
+    if corrected_task_index >= 0 and corrected_task_index < len(tasks):
+        tasks[corrected_task_index]["completada"] = True
+    print(f"Tarefa {corrected_task_index} marcada como completada")
+    return
+
 while True:
     print("\n Menu do Gerenciador de Lista de Tarefas:")
     print("1. Adicionar tarefa")
@@ -45,8 +52,12 @@ while True:
             task_new_name = input("Digite o novo nome da tarefa: ")
             update_task_name(tasks, task_index, task_new_name)
             
-#         case "4":
-#             # ...
+        case "4":
+            show_tasks(tasks)
+            task_index = input("Digite o numero da tarefa que deseja completar: ")
+            check_task(tasks,task_index )
+            
+       
 #         case "5":
 #             # ...
         case "6":
